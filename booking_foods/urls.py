@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from delivery.views import Index, About, Order
+from delivery.views import Home, About, Order, OrderConfirmation, OrderPayConfirmation
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Index.as_view(), name='home'),
+    path('', Home.as_view(), name='home'),
     path('aboutus/', About.as_view(), name='aboutus'),
     path('order/', Order.as_view(), name='order'),
-    # path('order-confirmation/<int:pk>', OrderConfirmation.as_view(),
-    #      name='order-confirmation'),
+    path('order-confirmation/<int:pk>', OrderConfirmation.as_view(),
+         name='order-confirmation'),
+    path('payment-confirmation/', OrderPayConfirmation.as_view(),
+         name='payment-confirmation'),
     # path('order_foods/', Order_Foods.as_view(), name='order_foods'),
 ]

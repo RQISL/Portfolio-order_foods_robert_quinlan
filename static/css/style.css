@@ -237,6 +237,7 @@ li {
     margin-top: 10px;
 }
 
+.active,
 li:hover {
     background-color: #BBB6A5;
     transition: 0.7s;
