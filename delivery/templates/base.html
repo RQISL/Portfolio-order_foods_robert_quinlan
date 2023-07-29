@@ -1,4 +1,5 @@
 {% load static %}
+{% load active_link_tags %}
 
 <!DOCTYPE html>
 <html class="h-100">
@@ -36,21 +37,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item {% if request.path == home %} active {% endif %}">
+                    <li class="nav-item {% active_link 'home' 'active' %}">
                         <a class="nav-link text-white" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
-                    <li class="nav-item {% if request.path == aboutus %} {% endif %}">
+                    <li class="nav-item {% active_link 'aboutus' 'custom-class' %}">
                         <a class="nav-link text-white" aria-current="page" href="{% url 'aboutus' %}">About Us</a>
                     </li>
-                    <li class="nav-item {% if request.path == order_foods %} active {% endif %}">
-                        <a class="nav-link text-white" aria-current="page" href="{% url 'order' %}">Order</a>
-                    </li>
-                    <li class="nav-item {% if request.path == order_foods %} active {% endif %}">
-                        <a class="nav-link text-white" aria-current="page" href="{% url 'order_foods' %}">Order
+                    <li class="nav-item {% active_link 'order' 'custom-class' %}">
+                        <a class="nav-link text-white" aria-current="page" href="{% url 'order' %}">Order
                             Foods</a>
                     </li>
+                </ul>
             </div>
-        </div>
     </nav>
 
     <main class="flex-shrink-0 main-bg">

@@ -1,5 +1,4 @@
-import json
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views import View
 from .models import MenuItem, Category, OrderModel
 
@@ -12,11 +11,6 @@ class Index(View):
 class About(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'aboutus.html')
-
-
-class Order_Foods(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'order_foods.html')
 
 
 class Order(View):
@@ -36,6 +30,7 @@ class Order(View):
             'drinks': drinks,
         }
 
+        # render the template
         return render(request, 'order.html', context)
 
     def post(self, request, *args, **kwargs):
@@ -70,4 +65,4 @@ class Order(View):
             'price': price
         }
 
-        return redirect('order-confirmation', pk=order.pk)
+        return render(request, 'order_confirmation.html', context)
