@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'order_foods',
     'delivery',
-    # 'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -61,9 +60,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-'APP_DIRS': True
-
-LOGIN_URL = 'accounts/login/'
+LOGIN_URL = 'accounts/login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -82,7 +79,7 @@ ROOT_URLCONF = 'booking_foods.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
