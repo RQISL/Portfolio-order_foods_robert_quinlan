@@ -30,7 +30,7 @@ class OrderModel(models.Model):
     street = models.CharField(max_length=50, blank=True)
     city = models.CharField(max_length=50, blank=True)
     county = models.CharField(max_length=15, blank=True)
-    eirecode = models.CharField(max_length=6, blank=True)
+    eirecode = models.CharField(max_length=8, blank=True)
     is_paid = models.BooleanField(default=False)
     is_shipped = models.BooleanField(default=False)
 
